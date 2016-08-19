@@ -24,48 +24,12 @@ var require = {
 
             //*****TOGGLE NAV BAR ITEMS HERE******//
             navBarItems: {
-                "1": true,
-                "2": true,
-                "3": true,
-                "4": true,
-                "5": true,
-                "6": true,
-                "7": true,
-                "8": true,
-                "9": true,
-                "10": true,
-                "11": true,
-                "12": true,
-                "13": true,
-                "14": true,
-                "15": true,
-                "16": true,
-                "17": true,
-                "18": true,
-                "19": true,
+                "1": true
             },
             //*****RELABEL NAV BAR ITEMS HERE******//
             navBarLabels: {
                 "main": "Home",
-                "1": "Master Bedroom",
-                "2": "Kitchen",
-                "3": "Hallway",
-                "4": "Guest Room",
-                "5": "Media Room",
-                "6": "Office",
-                "7": "Patio",
-                "8": "Den",
-                "9": "Bedroom 1",
-                "10": "Bedroom 2",
-                "11": "Studio",
-                "12": "Study",
-                "13": "Entry",
-                "14": "Garage",
-                "15": "Dining Room",
-                "16": "Outside",
-                "17": "Living Room",
-                "18": "Family Room",
-                "19": "Hello World"
+                "1": "Room 101"
             }
         }
     },
