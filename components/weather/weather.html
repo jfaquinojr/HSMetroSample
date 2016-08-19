@@ -1,0 +1,13 @@
+<div class="tile-large bg-blue fg-white" data-role="tile" data-bind='attr: {"class": classInfo}'>
+    <div class="tile-content" id="weather" data-bind="style: {backgroundImage: 'url(' + image() + ')' }" style="top left no-repeat; background-size: cover">
+        <div class="padding10 ">
+            <h1 data-bind="text: temp" />
+            <h2 data-bind="text: city"></h2>
+            <h5 data-bind="text: currently" />
+            <h4>Today</h4>
+            <p class="tertiary-text fg-white no-margin" data-bind="text: today" />
+            <h4>Tomorrow</h4>
+            <p class="tertiary-text fg-white no-margin" data-bind="text: tomorrow" />
+        </div>
+    </div>
+</div>
