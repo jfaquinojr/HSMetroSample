@@ -13,6 +13,7 @@ define(["knockout", "crossroads", "hasher"], function (ko, crossroads, hasher) {
         routes: [
             { url: '',              params: { page: 'home-page' } },
             { url: '1',             params: { page: 'hello_world' } },
+            { url: '2',             params: { page: 'room102' } }
         ]
     });
 

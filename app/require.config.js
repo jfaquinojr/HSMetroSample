@@ -24,12 +24,14 @@ var require = {
 
             //*****TOGGLE NAV BAR ITEMS HERE******//
             navBarItems: {
-                "1": true
+                "1": true,
+                "2": true
             },
             //*****RELABEL NAV BAR ITEMS HERE******//
             navBarLabels: {
                 "main": "Home",
-                "1": "Room 101"
+                "1": "Room 101",
+                "2": "Room 102"
             }
         }
     },
