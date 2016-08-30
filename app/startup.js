@@ -15,6 +15,11 @@ define(['jquery', 'knockout', 'metrojs', './router', 'bootstrap', 'knockout-proj
     ko.components.register('hstextstatusdevice', { require: 'components/hstextstatusdevice/hstextstatusdevice' });
     ko.components.register('hsnavidevice', { require: 'components/hsnavidevice/hsnavidevice' });
     //End Component Registration//
+
+    //SNSRi components
+    ko.components.register('action-center', { require: 'components/action-center/action-center' });
+    var self = this;
+    self.hsEvents = ko.observableArray();
     
     //HSMetro Pages are registered here.  The first parameter must match the page value specified in router.js//
      ko.components.register('home-page', {require: 'pages/home-page/home'});
@@ -46,6 +51,57 @@ define(['jquery', 'knockout', 'metrojs', './router', 'bootstrap', 'knockout-proj
     ko.applyBindings({
         route: router.currentRoute
     });
+
+
+    //ko.applyBindings(hsEvents);
+    console.log('Bindings applied');
+
+    this.lastCheckedDateTime = new Date();
+    var getRecentEvents = function(){
+
+        let url = "http://localhost:2410/odata/Events?$filter=OccurredOn gt " + getFormattedDateTime(self.lastCheckedDateTime);
+
+        $.get(url, null, function(results){
+            console.log('Records retrieved: ' + results.length);
+            if(results.value.length > 0){
+                console.log(JSON.stringify(results));
+                self.hsEvents(self.hsEvents().concat(results.value));
+                self.lastCheckedDateTime = new Date(); // remember the last checked time
+            }
+        });
+    }
+
+    // ready function
+    var interval = 3000;
+
+    $(function(){
+
+        var timeoutId = window.setInterval(getRecentEvents, interval);
+
+    })
+
+
+
+    function getFormattedDateTime(dateToFormat){
+
+        //http://stackoverflow.com/a/4929629/578334
+        var dd = dateToFormat.getDate();
+        var mm = dateToFormat.getMonth()+1; //January is 0!
+        var yyyy = dateToFormat.getFullYear();
+        var hh = dateToFormat.getHours();
+        var mins = dateToFormat.getMinutes();
+        var ss = dateToFormat.getSeconds();
+
+        dateToFormat = "DateTime'" + yyyy + "-" + padZero(mm) + "-" + padZero(dd) + "T" + padZero(hh) + ":" + padZero(mins) + ":" + padZero(ss) + "'";
+        return dateToFormat;
+    }
+
+    function padZero(n){
+        if(n<10){
+            return '0'+n;
+        }
+        return n;
+    }
 
 
 

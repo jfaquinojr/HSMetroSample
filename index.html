@@ -40,7 +40,28 @@
 
 <body style="background-color: #1d1d1d">
     <nav-bar params="route: route"></nav-bar>
-    <div id="tiles" data-bind="component: { name: route().page, params: route }"></div>
+    <div class="row">
+        <div class="col-md-8">
+            <div id="tiles" data-bind="component: { name: route().page, params: route }"></div>
+        </div>
+        <div class="col-md-4" style="margin-top:-90px;">
+            <span>Action Center</span>
+
+            <div class="action">
+                <ul class="" id="actions" style="list-style:none; padding-left:0px;" data-bind="foreach: hsEvents">
+                    <li>
+                        <div class="alert alert-info">
+                            Device <strong data-bind="text: DeviceId"></strong> changed from <strong data-bind="text: OldStatus"></strong> to <strong data-bind="text: NewStatus"></strong>.
+                            <p><a href="javascript:alert('not yet implemented.');">Take Action</a></p>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+
+
+        </div>
+    </div>
+    
 
 </body>
 
