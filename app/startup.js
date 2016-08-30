@@ -42,6 +42,7 @@ define(['jquery', 'knockout', 'metrojs', './router', 'bootstrap', 'knockout-proj
     // ko.components.register('family_room', {require: 'pages/family_room/family_room'});
     // ko.components.register('hallway', {require: 'pages/hallway/hallway'});
     ko.components.register('hello_world', {require: 'pages/hello_world/hello_world'});
+    ko.components.register('room102', {require: 'pages/room102/room102'});
     //End Page Registration//
     
 
