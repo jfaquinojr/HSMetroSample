@@ -1,0 +1,321 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props" Condition="Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" />
+  <Import Project="..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props" Condition="Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>
+    </ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{A5AEB0A0-3D00-4799-8755-365D4C782560}</ProjectGuid>
+    <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SNSRi.UI</RootNamespace>
+    <AssemblyName>SNSRi.UI</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <UseIISExpress>true</UseIISExpress>
+    <IISExpressSSLPort />
+    <IISExpressAnonymousAuthentication />
+    <IISExpressWindowsAuthentication />
+    <IISExpressUseClassicPipelineMode />
+    <UseGlobalApplicationHostFile />
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <ApplicationInsightsResourceId>/subscriptions/27cea231-c2ae-496e-8297-6c6e1b04207c/resourcegroups/Default-ApplicationInsights-CentralUS/providers/microsoft.insights/components/SNSRi.UI</ApplicationInsightsResourceId>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.AI.Agent.Intercept, Version=1.2.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Agent.Intercept.1.2.1\lib\net45\Microsoft.AI.Agent.Intercept.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.DependencyCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.DependencyCollector.2.1.0\lib\net45\Microsoft.AI.DependencyCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.PerfCounterCollector, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.PerfCounterCollector.2.1.0\lib\net45\Microsoft.AI.PerfCounterCollector.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.ServerTelemetryChannel, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.TelemetryChannel.2.1.0\lib\net45\Microsoft.AI.ServerTelemetryChannel.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.Web, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.Web.2.1.0\lib\net45\Microsoft.AI.Web.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.AI.WindowsServer, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.WindowsServer.2.1.0\lib\net45\Microsoft.AI.WindowsServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.ApplicationInsights, Version=2.1.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.ApplicationInsights.2.1.0\lib\net45\Microsoft.ApplicationInsights.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=1.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Web.DynamicData" />
+    <Reference Include="System.Web.Entity" />
+    <Reference Include="System.Web.ApplicationServices" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.EnterpriseServices" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <WCFMetadata Include="Service References\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="app\require.config.js" />
+    <Content Include="app\router.js" />
+    <Content Include="app\startup.js" />
+    <Content Include="components\clock\clock.html" />
+    <Content Include="components\clock\clock.js" />
+    <Content Include="components\hsdevice\hsdevice.html" />
+    <Content Include="components\hsdevice\hsdevice.js" />
+    <Content Include="components\hsevent\hsevent.html" />
+    <Content Include="components\hsevent\hsevent.js" />
+    <Content Include="components\hsnavidevice\hsnavidevice.html" />
+    <Content Include="components\hsnavidevice\hsnavidevice.js" />
+    <Content Include="components\hsstatusdevice\hsstatusdevice.html" />
+    <Content Include="components\hsstatusdevice\hsstatusdevice.js" />
+    <Content Include="components\hstextstatusdevice\hstextstatusdevice.html" />
+    <Content Include="components\hstextstatusdevice\hstextstatusdevice.js" />
+    <Content Include="components\hsthermostat\hsthermostat.html" />
+    <Content Include="components\hsthermostat\hsthermostat.js" />
+    <Content Include="components\nav-bar\nav-bar.html" />
+    <Content Include="components\nav-bar\nav-bar.js" />
+    <Content Include="components\refresh\refresh.html" />
+    <Content Include="components\refresh\refresh.js" />
+    <Content Include="components\staticimage\staticimage.html" />
+    <Content Include="components\staticimage\staticimage.js" />
+    <Content Include="components\weather\weather.html" />
+    <Content Include="components\weather\weather.js" />
+    <Content Include="components\webpage\webpage.html" />
+    <Content Include="components\webpage\webpage.js" />
+    <Content Include="css\bootstrap.min.css" />
+    <Content Include="css\clock.css" />
+    <Content Include="css\images\1pixel.gif" />
+    <Content Include="css\images\metroIcons.jpg" />
+    <Content Include="css\images\metroIcons_light.jpg" />
+    <Content Include="css\metro-icons.css" />
+    <Content Include="css\metro-icons.min.css" />
+    <Content Include="css\metro.min.css" />
+    <Content Include="favicon.ico" />
+    <Content Include="fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="fonts\metro.svg" />
+    <Content Include="img\battery.png" />
+    <Content Include="img\cool.png" />
+    <Content Include="img\down.png" />
+    <Content Include="img\energy_save.png" />
+    <Content Include="img\heat-cool.png" />
+    <Content Include="img\heat.png" />
+    <Content Include="img\humidity.png" />
+    <Content Include="img\left.png" />
+    <Content Include="img\live tile2.jpeg" />
+    <Content Include="img\live tile3.jpg" />
+    <Content Include="img\livetile.jpeg" />
+    <Content Include="img\on_off.png" />
+    <Content Include="img\pending.png" />
+    <Content Include="img\refresh.png" />
+    <Content Include="img\right.png" />
+    <Content Include="img\up.png" />
+    <Content Include="img\valve.png" />
+    <Content Include="index.html" />
+    <Content Include="install instructions.txt" />
+    <Content Include="libs\bluebird.min.js" />
+    <Content Include="libs\bootstrap.min.js" />
+    <Content Include="libs\Config.js" />
+    <Content Include="libs\crossroads.min.js" />
+    <Content Include="libs\faye-browser-min.js" />
+    <Content Include="libs\hasher.min.js" />
+    <Content Include="libs\HSDevice.js" />
+    <Content Include="libs\HSDeviceController.js" />
+    <Content Include="libs\HSEventController.js" />
+    <Content Include="libs\jquery-ui.min.js" />
+    <Content Include="libs\jquery.min.js" />
+    <Content Include="libs\jQuery.simpleWeather.js" />
+    <Content Include="libs\jquery.simpleWeather.min.js" />
+    <Content Include="libs\knockout-projections.min.js" />
+    <Content Include="libs\knockout.js" />
+    <Content Include="libs\metro.js" />
+    <Content Include="libs\metro.min.js" />
+    <Content Include="libs\page_layout.js" />
+    <Content Include="libs\require.js" />
+    <Content Include="libs\signals.min.js" />
+    <Content Include="libs\text.js" />
+    <Content Include="libs\underscore-min.js" />
+    <Content Include="pages\bedroom_1\bedroom_1.html" />
+    <Content Include="pages\bedroom_1\bedroom_1.js" />
+    <Content Include="pages\bedroom_2\bedroom_2.html" />
+    <Content Include="pages\bedroom_2\bedroom_2.js" />
+    <Content Include="pages\bedroom_3\bedroom_3.html" />
+    <Content Include="pages\bedroom_3\bedroom_3.js" />
+    <Content Include="pages\den\den.html" />
+    <Content Include="pages\den\den.js" />
+    <Content Include="pages\dining_room\dining_room.html" />
+    <Content Include="pages\dining_room\dining_room.js" />
+    <Content Include="pages\entry\entry.html" />
+    <Content Include="pages\entry\entry.js" />
+    <Content Include="pages\family_room\family_room.html" />
+    <Content Include="pages\family_room\family_room.js" />
+    <Content Include="pages\garage\garage.html" />
+    <Content Include="pages\garage\garage.js" />
+    <Content Include="pages\guest_room\guest_room.html" />
+    <Content Include="pages\guest_room\guest_room.js" />
+    <Content Include="pages\hallway\hallway.html" />
+    <Content Include="pages\hallway\hallway.js" />
+    <Content Include="pages\hello_world\hello_world.html" />
+    <Content Include="pages\hello_world\hello_world.js" />
+    <Content Include="pages\home-page\home.html" />
+    <Content Include="pages\home-page\home.js" />
+    <Content Include="pages\kitchen\kitchen.html" />
+    <Content Include="pages\kitchen\kitchen.js" />
+    <Content Include="pages\living_room\living_room.html" />
+    <Content Include="pages\living_room\living_room.js" />
+    <Content Include="pages\master_br\master_br.html" />
+    <Content Include="pages\master_br\master_br.js" />
+    <Content Include="pages\media_room\media_room.html" />
+    <Content Include="pages\media_room\media_room.js" />
+    <Content Include="pages\office\office.html" />
+    <Content Include="pages\office\office.js" />
+    <Content Include="pages\outside\outside.html" />
+    <Content Include="pages\outside\outside.js" />
+    <Content Include="pages\patio\patio.html" />
+    <Content Include="pages\patio\patio.js" />
+    <Content Include="pages\room102\room102.html" />
+    <Content Include="pages\room102\room102.js" />
+    <Content Include="pages\study\study.html" />
+    <Content Include="pages\study\study.js" />
+    <Content Include="proxy.js" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="components\.DS_Store" />
+    <Content Include="components\hsdevice\.DS_Store" />
+    <Content Include="components\hsstatusdevice\.DS_Store" />
+    <Content Include="components\hsthermostat\.DS_Store" />
+    <Content Include="components\nav-bar\.DS_Store" />
+    <Content Include="components\staticimage\.DS_Store" />
+    <Content Include="components\webpage\.DS_Store" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="css\.DS_Store" />
+    <Content Include="css\images\.DS_Store" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="fonts\metro.eot" />
+    <Content Include="fonts\metro.ttf" />
+    <Content Include="fonts\metro.woff" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="fonts\selection.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="libs\faye-browser-min.js.map" />
+    <Content Include="libs\jquery.min.map" />
+    <Content Include="libs\underscore-min.map" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="pages\.DS_Store" />
+    <Content Include="pages\bedroom_1\.DS_Store" />
+    <Content Include="pages\bedroom_2\.DS_Store" />
+    <Content Include="pages\bedroom_3\.DS_Store" />
+    <Content Include="pages\den\.DS_Store" />
+    <Content Include="pages\dining_room\.DS_Store" />
+    <Content Include="pages\entry\.DS_Store" />
+    <Content Include="pages\family_room\.DS_Store" />
+    <Content Include="pages\garage\.DS_Store" />
+    <Content Include="pages\guest_room\.DS_Store" />
+    <Content Include="pages\hallway\.DS_Store" />
+    <Content Include="pages\home-page\.DS_Store" />
+    <Content Include="pages\kitchen\.DS_Store" />
+    <Content Include="pages\living_room\.DS_Store" />
+    <Content Include="pages\master_br\.DS_Store" />
+    <Content Include="pages\media_room\.DS_Store" />
+    <Content Include="pages\office\.DS_Store" />
+    <Content Include="pages\outside\.DS_Store" />
+    <Content Include="pages\patio\.DS_Store" />
+    <Content Include="pages\study\.DS_Store" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="manifest.json" />
+    <Content Include="package.json" />
+  </ItemGroup>
+  <PropertyGroup>
+    <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
+    <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>
+  </PropertyGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <Import Project="$(VSToolsPath)\WebApplications\Microsoft.WebApplication.targets" Condition="'$(VSToolsPath)' != ''" />
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" Condition="false" />
+  <ProjectExtensions>
+    <VisualStudio>
+      <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
+        <WebProjectProperties>
+          <UseIIS>True</UseIIS>
+          <AutoAssignPort>True</AutoAssignPort>
+          <DevelopmentServerPort>64201</DevelopmentServerPort>
+          <DevelopmentServerVPath>/</DevelopmentServerVPath>
+          <IISUrl>http://localhost:64150/</IISUrl>
+          <NTLMAuthentication>False</NTLMAuthentication>
+          <UseCustomServer>False</UseCustomServer>
+          <CustomServerUrl>
+          </CustomServerUrl>
+          <SaveServerSettingsInUserFile>False</SaveServerSettingsInUserFile>
+        </WebProjectProperties>
+      </FlavorProperties>
+    </VisualStudio>
+  </ProjectExtensions>
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.Net.Compilers.1.0.0\build\Microsoft.Net.Compilers.props'))" />
+    <Error Condition="!Exists('..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.1.0.0\build\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.props'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
