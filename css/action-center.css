@@ -1,0 +1,26 @@
+﻿.tile-action{
+    width: 250px;
+    height: 100px;
+    display: block;
+    float: right;
+    box-shadow: inset 0 0 1px #FFC;
+	overflow:visible;
+	margin: 5px;
+    position: relative;
+    -moz-user-select: none;
+    user-select: none;
+}
+
+.tile-action-x{
+	width:250px;
+}
+
+.tile-action-float{
+	float:right;
+}
+
+
+.action-center-scroll{
+	overflow-y: auto;
+	overflow-x: hidden;
+}

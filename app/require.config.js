@@ -17,7 +17,7 @@ var require = {
     config: {
         'config': {
             //*****ONLY EDIT THESE THREE VARIABLES TO POINT TO YOUR HOMESEER SYSTEM******//
-            url: 'http://10.1.10.196', //The URL to your HomeSeer server
+            url: 'http://localhost:8002', //The URL to your HomeSeer server
             //proxyIP: 'localhost', //The IP address of the server running the proxy
             //proxyPort: '8000', //The PORT the UI will connect to.  Default is 6512
             zipcode: '89135',

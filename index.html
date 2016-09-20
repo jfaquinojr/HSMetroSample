@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -31,6 +31,9 @@
     <link href="css/metro.min.css" rel="stylesheet">    
     <script src="app/require.config.js"></script>
     <script data-main="app/startup" src="libs/require.js"></script>
+	<script src="scripts/angular.js"></script>
+	<script src="app/main.js"></script>
+	<link href="css/action-center.css" rel="stylesheet" />
     
     <script>
         var message = "Version 2.9.1-2";
@@ -38,30 +41,37 @@
     </script>
 </head>
 
-<body style="background-color: #1d1d1d">
+<body style="background-color: #1d1d1d" ng-app="app">
     <nav-bar params="route: route"></nav-bar>
-    <div class="row">
-        <div class="col-md-8">
-            <div id="tiles" data-bind="component: { name: route().page, params: route }"></div>
-        </div>
-        <div class="col-md-4" style="margin-top:-90px;">
-            <span>Action Center</span>
+    <div id="tiles" data-bind="component: { name: route().page, params: route }"></div>
 
-            <div class="action">
-                <ul class="" id="actions" style="list-style:none; padding-left:0px;" data-bind="foreach: hsEvents">
-                    <li>
-                        <div class="alert alert-info">
-                            Device <strong data-bind="text: DeviceId"></strong> changed from <strong data-bind="text: OldStatus"></strong> to <strong data-bind="text: NewStatus"></strong>.
-                            <p><a href="javascript:alert('not yet implemented.');">Take Action</a></p>
-                        </div>
-                    </li>
-                </ul>
-            </div>
-
-
-        </div>
-    </div>
     
+
+
+
+<div data-role="charm" data-position="right" id="right-charm" class="charm right-side bg-grayDark action-center-scroll" style="opacity: 1; display: block; right: 0px; left: auto; top: 0px; bottom: 0px;">
+	<h1 class="text-light">Action Center</h1>
+	<div ng-controller="TicketsController as vm" class="">
+		
+		<div ng-repeat="ticket in vm.tickets" class="fg-white">
+			<div class="col-xs-12 tile tile-action-x tile-small-y tile-action-float bg-darkBlue">
+				<div class="tile-content slide-down">
+					<div class="slide">
+						<span class="tile-label">{{ticket.Name}}</span>
+					</div>
+					<div class="slide-over">
+						<span class="tile-label">{{ticket.Description}}</span>
+					</div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+	
+	
+</div>
+
+
 
 </body>
 
