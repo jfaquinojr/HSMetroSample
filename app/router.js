@@ -21,12 +21,24 @@ define(["knockout", "crossroads", "hasher"], function (ko, crossroads, hasher) {
         var currentRoute = this.currentRoute = ko.observable({});
 
         ko.utils.arrayForEach(config.routes, function (route) {
-            crossroads.addRoute(route.url, function (requestParams) {
+        	crossroads.addRoute(route.url, function (requestParams) {
                 currentRoute(ko.utils.extend(requestParams, route.params));
             });
         });
 
         activateCrossroads();
+
+    	// execute action every time crossroads matches a route
+    	// https://github.com/millermedeiros/crossroads.js/wiki/Examples#execute-an-action-every-time-crossroads-matches-any-route
+        crossroads.routed.add(function (pageNo) {
+
+        	var n = parseInt(pageNo);
+        	if (n > 0) {
+
+        	}
+
+        	alert(pageNo);
+        });
     }
 
     function activateCrossroads() {

@@ -32,6 +32,7 @@
     <script src="app/require.config.js"></script>
     <script data-main="app/startup" src="libs/require.js"></script>
 	<script src="scripts/angular.js"></script>
+	<script src="libs/underscore-min.js"></script>
 	<script src="app/main.js"></script>
 	<link href="css/action-center.css" rel="stylesheet" />
     
@@ -53,9 +54,9 @@
 	<h1 class="text-light">Action Center</h1>
 	<div ng-controller="TicketsController as vm" class="">
 		
-		<div ng-repeat="ticket in vm.tickets" class="fg-white">
-			<div class="col-xs-12 tile tile-action-x tile-small-y tile-action-float bg-darkBlue">
-				<div class="tile-content slide-down">
+		<div ng-repeat="ticket in vm.ticketsVisible" class="fg-white">
+			<div class="col-xs-12 tile tile-action-x tile-action-float bg-darkBlue">
+				<div class="tile-content slide-left">
 					<div class="slide">
 						<span class="tile-label">{{ticket.Name}}</span>
 					</div>
@@ -64,7 +65,6 @@
 					</div>
 				</div>
 			</div>
-			
 		</div>
 	</div>
 	
