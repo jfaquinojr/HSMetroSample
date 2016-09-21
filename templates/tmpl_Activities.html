@@ -1,0 +1,26 @@
+﻿<script type="text/ng-template" id="tmpl_Activities.html">
+    <div class="modal-header">
+    <h3 class="modal-title" id="modal-title">I'm a modal!</h3>
+    </div>
+    <div class="modal-body" id="modal-body">
+    <ul>
+        <li ng-repeat="item in $ctrl.items">
+        <a href="#" ng-click="$event.preventDefault(); $ctrl.selected.item = item">{{ item }}</a>
+        </li>
+    </ul>
+    Selected: <b>{{ $ctrl.selected.item }}</b>
+    </div>
+    <div class="modal-footer">
+    <button class="btn btn-primary" type="button" ng-click="$ctrl.ok()">OK</button>
+    <button class="btn btn-warning" type="button" ng-click="$ctrl.cancel()">Cancel</button>
+    </div>
+</script>
+
+<div data-role="dialog" id="dialog" class="padding20 dialog" data-close-button="true" style="width: auto; height: auto; visibility: visible; left: 179px; top: 325.5px; z-index: 9999;">
+            <h1>Simple dialog</h1>
+<div class="input-control textarea"
+    data-role="input" data-text-auto-resize="true">
+    <textarea></textarea>
+</div>
+	<span class="dialog-close-button"></span>
+</div>
