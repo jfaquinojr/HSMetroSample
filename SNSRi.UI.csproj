@@ -236,7 +236,7 @@
     <Content Include="scripts\moment.js" />
     <Content Include="scripts\ui-bootstrap-tpls-2.1.3.js" />
     <Content Include="scripts\widget.js" />
-    <Content Include="templates\tmpl_Activities.html" />
+    <Content Include="templates\popupShowActivities.html" />
     <Content Include="web.config" />
     <None Include="web.Debug.config">
       <DependentUpon>web.config</DependentUpon>

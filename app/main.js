@@ -56,9 +56,13 @@
 		loadTickets();
 
 		vm.editTicket = function(ticket) {
+
+		    vm.SelectedTicket = ticket;
+		    loadActivitiesFor(ticket);
+
 		    var dialog = $("#dialog").data("dialog");
 		    dialog.open();
-		    loadActivitiesFor(ticket);
+		    
 		};
 
         vm.open = function(size) {
@@ -79,6 +83,40 @@
 
     });
 
+
+    app.directive("popupShowActivities",
+        function () {
+
+            return {
+                templateUrl: "templates/popupShowActivities.html",
+                restrict: "E",
+                scope: {
+                    ticket: "="
+                },
+                controller: function ($scope) {
+
+                    $scope.comment = "";
+                    
+                    $scope.addActivity = function (comment) {
+
+                        $scope.ticket.Activities.unshift({
+                            TicketId: $scope.ticket.Id,
+                            Comment: comment,
+                            CreatedOn: new Date(),
+                            CreatedBy: 1
+                        });
+
+                        $scope.comment = "";
+                    }
+                    
+                    $scope.closeTicket = function (comment) {
+                        alert(comment);
+                    }
+
+                }
+            }
+
+        });
 
 
 })();

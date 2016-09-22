@@ -29,26 +29,21 @@
     <link href="css/clock.css" rel="stylesheet">   
     <link href="css/metro-icons.min.css" rel="stylesheet">
     <link href="css/metro.min.css" rel="stylesheet">    
+    <link href="css/action-center.css" rel="stylesheet" />
+
     <script src="app/require.config.js"></script>
     <script data-main="app/startup" src="libs/require.js"></script>
+
     <script src="libs/jquery.min.js"></script>    
-    <script src="scripts/angular.js"></script>
-    <script src="scripts/moment.js"></script>
-    <script src="scripts/angular-moment.min.js"></script>     
-    <script src="scripts/widget.js"></script>    
-    <script src="scripts/dialog.js"></script>    
     <script src="libs/underscore-min.js"></script>
+    <script src="scripts/angular.js"></script>
+    <!--<script src="scripts/moment.js"></script>-->
+    <!--<script src="scripts/angular-moment.min.js"></script>-->     
+    <script src="scripts/widget.js"></script>    
+    <script src="scripts/dialog.js"></script>  
     <script src="scripts/ui-bootstrap-tpls-2.1.3.js"></script>    
     <script src="app/main.js"></script>
-    <link href="css/action-center.css" rel="stylesheet" />
-    
-
-    
-<script src="scripts/moment.js"></script>
-    <script>
-        var message = "Version 2.9.1-2";
-        document.oncontextmenu = new Function("alert(message);return false");
-    </script>
+ 
 </head>
 
 <body style="background-color: #1d1d1d" ng-app="app">
@@ -77,58 +72,7 @@
 	        </div>
 	    </div>
         
-	    <div data-role="dialog" id="dialog" data-overlay="true" class="padding20 dialog" data-close-button="true" style="width: auto; height: auto; visibility: visible; left: 179px; top: 325.5px;">
-	        <h3>{{vm.SelectedTicket.Name}}</h3>
-	        <p>
-	            {{vm.SelectedTicket.Description}}
-	        </p>
-            <div class="grid condensed">
-                <div class="row">
-                    <div class="cell">
-                        <textarea rows="3" id="Activity" placeholder="enter activity" style="width: 100%;"></textarea>
-                    </div>
-                </div>
-                
-                <div class="row cells2">
-                    <div class="cell">
-                        <button class="button"><span class="mif-plus"></span> Add Activity</button>
-                    </div>
-                    <div class="cell">
-                        <button class="button primary place-right"><span class="mif-checkmark"></span> Close Event</button>
-                    </div>
-                </div>
-                
-                <div class="activities" style="padding-top: 30px;">
-                    
-  
-                    <div class="row" style="padding-top: 20px;" ng-repeat="activity in vm.SelectedTicket.Activities">
-                        <div class="cell">
-                            <p>
-                                <span class="text-normal">{{activity.comment}}</span>
-                            </p>
-                            <p>
-                                <span class="text-dashed">user {{activity.CreatedBy}}</span> {{activity.CreatedOn }}
-                            </p>
-                        </div>
-                    </div>
-                    
-                    
-                    
-             
-                    
-                    
-
-                </div>
-
-            </div>
-
-
-
-
-
-
-	        <span class="dialog-close-button"></span>
-	    </div>
+	    <popup-show-activities ticket="vm.SelectedTicket"></popup-show-activities>
 
 	</div>
 </div>

@@ -16,10 +16,6 @@ define(['jquery', 'knockout', 'metrojs', './router', 'bootstrap', 'knockout-proj
     ko.components.register('hsnavidevice', { require: 'components/hsnavidevice/hsnavidevice' });
     //End Component Registration//
 
-    //SNSRi components
-    ko.components.register('action-center', { require: 'components/action-center/action-center' });
-    var self = this;
-    self.hsEvents = ko.observableArray();
     
     //HSMetro Pages are registered here.  The first parameter must match the page value specified in router.js//
      ko.components.register('home-page', {require: 'pages/home-page/home'});
@@ -52,34 +48,6 @@ define(['jquery', 'knockout', 'metrojs', './router', 'bootstrap', 'knockout-proj
     ko.applyBindings({
         route: router.currentRoute
     });
-
-
-
-    this.lastCheckedDateTime = new Date();
-    var getRecentEvents = function(){
-
-    	let url = "http://localhost:8001/api/Tickets/Open";
-
-        $.get(url, null, function(results){
-            console.log('Records retrieved: ' + results.length);
-            if(results.value.length > 0){
-                console.log(JSON.stringify(results));
-                self.hsEvents(self.hsEvents().concat(results.value));
-                self.lastCheckedDateTime = new Date(); // remember the last checked time
-            }
-        });
-    }
-
-    // ready function
-    var interval = 3000;
-
-    $(function(){
-
-        //var timeoutId = window.setInterval(getRecentEvents, interval);
-
-    })
-
-
 
 
 });
