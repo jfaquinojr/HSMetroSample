@@ -1,4 +1,11 @@
 ﻿(function () {
+
+    var global = {
+        api: {
+            url: 'http://localhost:8001/api/'
+        }
+    };
+
     var app = angular.module("app", ["ui.bootstrap", "ui.bootstrap.modal"]);
 
   
@@ -60,9 +67,8 @@
 		    vm.SelectedTicket = ticket;
 		    loadActivitiesFor(ticket);
 
-		    var dialog = $("#dialog").data("dialog");
-		    dialog.open();
-		    
+		    openDialog();
+
 		};
 
         vm.open = function(size) {
@@ -83,6 +89,24 @@
 
     });
 
+    function createActivity(ticket, comment) {
+        return {
+            TicketId: ticket.Id,
+            Comment: comment,
+            CreatedBy: 1
+        };
+    }
+
+    function openDialog() {
+        var dialog = $("#dialog").data("dialog");
+        dialog.open();
+    }
+
+    function closeDialog() {
+        var dialog = $("#dialog").data("dialog");
+        dialog.close();
+    }
+
 
     app.directive("popupShowActivities",
         function () {
@@ -93,25 +117,74 @@
                 scope: {
                     ticket: "="
                 },
-                controller: function ($scope) {
+                controller: function ($scope, $http) {
 
                     $scope.comment = "";
                     
                     $scope.addActivity = function (comment) {
 
-                        $scope.ticket.Activities.unshift({
-                            TicketId: $scope.ticket.Id,
-                            Comment: comment,
-                            CreatedOn: new Date(),
-                            CreatedBy: 1
-                        });
+                        var activityData = createActivity($scope.ticket, comment);
 
-                        $scope.comment = "";
+                        $http.post(global.api.url + "CreateActivity", JSON.stringify(activityData))
+                            .then(
+                                function(result) {
+                                    $scope.ticket.Activities.unshift({
+                                        TicketId: $scope.ticket.Id,
+                                        Comment: comment,
+                                        CreatedOn: new Date(),
+                                        CreatedBy: 1
+                                    });
+
+                                    $scope.comment = "";
+
+                                    $.Notify({
+                                        caption: 'Success',
+                                        content: 'Activity created.',
+                                        type: 'success'
+                                    });
+                                },
+                                function(error) {
+                                    $.Notify({
+                                        caption: 'Create Activity Failed',
+                                        content: error,
+                                        type: 'alert'
+                                    });
+                                });
                     }
                     
                     $scope.closeTicket = function (comment) {
-                        alert(comment);
-                    }
+
+                        var activityData = createActivity($scope.ticket, comment);
+
+                        $http.post(global.api.url + "CloseTicket", JSON.stringify(activityData))
+                            .then(
+                                function (result) {
+
+                                    $scope.ticket.Activities.unshift({
+                                        TicketId: $scope.ticket.Id,
+                                        Comment: comment,
+                                        CreatedOn: new Date(),
+                                        CreatedBy: 1
+                                    });
+
+                                    $scope.comment = "";
+
+                                    closeDialog();
+
+                                    $.Notify({
+                                        caption: 'Success',
+                                        content: 'Ticket closed.',
+                                        type: 'success'
+                                    });
+                                },
+                                function (error) {
+                                    $.Notify({
+                                        caption: 'Unable to close Ticket',
+                                        content: error,
+                                        type: 'alert'
+                                    });
+                                });
+                    } // closeTicket
 
                 }
             }
