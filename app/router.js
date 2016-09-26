@@ -1,4 +1,4 @@
-define(["knockout", "crossroads", "hasher"], function (ko, crossroads, hasher) {
+define(["knockout", "crossroads", "hasher", "angularjs"], function (ko, crossroads, hasher, ng) {
 
     // This module configures crossroads.js, a routing library. If you prefer, you
     // can use any other routing library (or none at all) as Knockout is designed to
@@ -32,12 +32,13 @@ define(["knockout", "crossroads", "hasher"], function (ko, crossroads, hasher) {
     	// https://github.com/millermedeiros/crossroads.js/wiki/Examples#execute-an-action-every-time-crossroads-matches-any-route
         crossroads.routed.add(function (pageNo) {
 
+            var scope = angular.element($("#TicketsController2")).scope();
         	var n = parseInt(pageNo);
         	if (n > 0) {
-
-        	}
-
-        	alert(pageNo);
+	            scope.loadTicketsByRoom(n);
+	        } else {
+	            scope.loadTickets();
+	        }
         });
     }
 

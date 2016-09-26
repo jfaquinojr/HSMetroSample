@@ -12,8 +12,6 @@
 
     app.controller("TicketsController", function ($http, $uibModal, $scope) {
 
-		//alert("TicketsController!!!");
-
 		var vm = this;
 		var svc = $http;
 
@@ -23,15 +21,17 @@
 		vm.ticketsVisible = [];
 
 		function loadTickets() {
-			var url = "http://localhost:8001/api/Tickets/Open";
+			var url = global.api.url + "Tickets/Open";
 			svc.get(url).then(function (result) {
-				vm.ticketsAll = vm.ticketsAll.concat(result.data);
+				vm.ticketsAll = result.data;
 				vm.ticketsVisible = vm.ticketsAll;
 			});
-		}
+		};
+
+        $scope.loadTickets = loadTickets;
 
 		function loadNewTicketswithinPastMinutes(minutes) {
-			var url = "http://localhost:8001/api/Tickets/Open/Past/Minutes/" + minutes;
+		    var url = global.api.url + "Tickets/Open/Past/Minutes/" + minutes;
 			svc.get(url).then(function (result) {
 				vm.ticketsAll = vm.ticketsAll.concat(result.data); //TODO: filter first <---!!!!!
 				vm.ticketsVisible = vm.ticketsAll;
@@ -40,23 +40,24 @@
 
 		function loadActivitiesFor(ticket) {
 		    var retval = [];
-		    var url = "http://localhost:8001/api/Tickets/" + ticket.Id + "/Activities";
+		    var url = global.api.url + "Tickets/" + ticket.Id + "/Activities";
 		    console.log(url);
             svc.get(url).then(function (result) {
                 retval = result.data;
                 vm.SelectedTicket = ticket;
                 vm.SelectedTicket.Activities = retval;
                 console.log(JSON.stringify(vm.SelectedTicket.Activities));
-                
             });
-            
 		}
 
-		//function filterByPage(pageNo) {
-		//	vm.ticketsVisible = _.filter(vm.ticketsAll, function (ticket) {
-		//		return 
-		//	});
-		//}
+		$scope.loadTicketsByRoom = function(roomId) {
+		    var url = global.api.url + "Tickets/Open/Room/" + roomId;
+		    console.log(url);
+		    svc.get(url).then(function (result) {
+		        vm.ticketsAll = result.data;
+		        vm.ticketsVisible = vm.ticketsAll;
+		    });
+		}
 
 		//vm.filterByPage = filterByPage;
 
@@ -191,5 +192,16 @@
 
         });
 
+    app.directive("ticketTile",
+        function() {
+            return {
+                templateUrl: "templates/ticketTile.html",
+                restrict: "E",
+                scope: true,
+                controller: function($scope) {
+                    
+                }
+            }
+        });
 
 })();

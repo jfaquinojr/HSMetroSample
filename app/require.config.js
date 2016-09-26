@@ -55,10 +55,11 @@ var require = {
         "config":               "libs/Config",
         "bluebird":             "libs/bluebird.min",
         "metrojs":              "libs/metro",
-        "pageLayout":           "libs/page_layout"
+        "pageLayout":           "libs/page_layout",
+        "angularjs":            "libs/angular.min"
     },
     shim: {
         "bootstrap": {deps: ["jquery"]},
-        "metrojs": {deps: ["jquery"]},
+        "metrojs": {deps: ["jquery"]}
     }
 };

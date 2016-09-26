@@ -41,35 +41,25 @@
     <!--<script src="scripts/angular-moment.min.js"></script>-->     
     <script src="scripts/widget.js"></script>    
     <script src="scripts/dialog.js"></script>  
-    <script src="scripts/ui-bootstrap-tpls-2.1.3.js"></script>    
+    <script src="scripts/ui-bootstrap-tpls-2.1.3.js"></script> 
     <script src="app/main.js"></script>
  
 </head>
 
 <body style="background-color: #1d1d1d" ng-app="app">
     <nav-bar params="route: route"></nav-bar>
+    
     <div id="tiles" data-bind="component: { name: route().page, params: route }"></div>
 
     
+    
 
-
-<div ng-controller="TicketsController as vm" class="" >
+<div id="TicketsController2" ng-controller="TicketsController as vm" class="" >
     <div data-role="charm" data-position="right" id="right-charm" class="charm right-side bg-grayDark action-center-scroll charm-zindex" style="opacity: 1; display: block; right: 0px; left: auto; top: 0px; bottom: 0px;">
         <h1 class="text-light">Action Center</h1>
 	
         <div ng-repeat="ticket in vm.ticketsVisible" class="fg-white" ng-click="vm.editTicket(ticket)">
-            <div class="col-xs-12 tile tile-action-x tile-action-float bg-darkBlue">
-
-                <div class="tile-content slide-left">
-                    <div class="slide">
-                        <span class="tile-label">{{ticket.Name}}</span>
-                    </div>
-                    <div class="slide-over">
-                        <span class="tile-label">{{ticket.Description}}</span>
-                    </div>
-                </div>
-
-            </div>
+            <ticket-tile></ticket-tile>
         </div>
         
     </div>

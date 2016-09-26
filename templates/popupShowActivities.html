@@ -33,7 +33,7 @@
                                 <span class="text-normal">{{activity.Comment}}</span>
                             </p>
                             <p>
-                                <span class="text-dashed">user {{activity.CreatedBy}}</span> {{activity.CreatedOn }}
+                                <span class="text-dashed">user {{activity.CreatedBy}}</span> on {{activity.CreatedOn | date: "M/d/yyyy h:mma"}}
                             </p>                          
                         </div>
 
