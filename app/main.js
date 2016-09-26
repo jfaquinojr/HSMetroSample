@@ -6,11 +6,11 @@
         }
     };
 
-    var app = angular.module("app", ["ui.bootstrap", "ui.bootstrap.modal"]);
+    var app = angular.module("app", ["ui.bootstrap", "ui.bootstrap.modal", "angular-lodash"]);
 
   
 
-    app.controller("TicketsController", function ($http, $uibModal, $scope) {
+    app.controller("TicketsController", function ($http, $uibModal, $scope, $interval) {
 
 		var vm = this;
 		var svc = $http;
@@ -18,7 +18,8 @@
         vm.SelectedTicket = {};
 
         vm.ticketsAll = [];
-		vm.ticketsVisible = [];
+        vm.ticketsVisible = [];
+
 
 		function loadTickets() {
 			var url = global.api.url + "Tickets/Open";
@@ -30,13 +31,22 @@
 
         $scope.loadTickets = loadTickets;
 
-		function loadNewTicketswithinPastMinutes(minutes) {
+        function loadNewTicketswithinPastMinutes(minutes) {
+
+            if (!minutes) {
+                minutes = 1;
+            }
+
 		    var url = global.api.url + "Tickets/Open/Past/Minutes/" + minutes;
-			svc.get(url).then(function (result) {
-				vm.ticketsAll = vm.ticketsAll.concat(result.data); //TODO: filter first <---!!!!!
+		    svc.get(url).then(function (result) {
+		        vm.ticketsAll = _.uniq(_.union(result.data, vm.ticketsAll), false, function (o){ return o.Id });
 				vm.ticketsVisible = vm.ticketsAll;
-			});
-		}
+		    });
+
+            //alert('loadNewTicketswithinPastMinutes');
+        }
+
+        $interval(loadNewTicketswithinPastMinutes, 3000);
 
 		function loadActivitiesFor(ticket) {
 		    var retval = [];

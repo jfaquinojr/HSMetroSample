@@ -226,6 +226,7 @@
     <Content Include="pages\study\study.html" />
     <Content Include="pages\study\study.js" />
     <Content Include="proxy.js" />
+    <Content Include="scripts\angular-lodash.js" />
     <Content Include="scripts\angular-mocks.js" />
     <Content Include="scripts\angular-moment.min.js" />
     <Content Include="scripts\angular.js" />
@@ -235,6 +236,7 @@
     <Content Include="scripts\dialog.js" />
     <Content Include="scripts\moment.js" />
     <Content Include="scripts\ui-bootstrap-tpls-2.1.3.js" />
+    <Content Include="scripts\underscore.js" />
     <Content Include="scripts\widget.js" />
     <Content Include="templates\ticketTile.html" />
     <Content Include="templates\popupShowActivities.html" />
